@@ -21,23 +21,28 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
       # Runs a single command using the runners shell
       - name: Install Node
         uses: actions/setup-node@v2-beta
 
       - name: Install Dependencies
-        working-directory: First-React-app
-        run: npm install
+        run: |
+          cd First-React-App
+          pwd
+          npm install
       
       - name: Install Surge
         run: npm install --globally surge
         
       - name: Build Vite
-        working-directory: First-React-app
-        run: npm run build
+        run: |
+          cd First-React-App
+          npm run build
         
       - name: Run Surge
-        working-directory: First-React-app
-        run: surge dist ${{ secrets.SURGE_TOKEN }}
+        run: |
+          cd First-React-App
+          surge dist ${{ secrets.SURGE_TOKEN }}
+          
