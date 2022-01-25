@@ -28,8 +28,11 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Go to project
-        run: cd First-React-App
-      # Runs a set of commands using the runners shell
+        run: cd First-React-App/
+      
+      - name: Get current working directory
+        run: pwd
+
       - name: Install Dependencies
         run: npm install
       
