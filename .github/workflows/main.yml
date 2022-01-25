@@ -44,5 +44,5 @@ jobs:
       - name: Run Surge
         run: |
           cd First-React-App
-          surge dist ${{ secrets.SURGE_TOKEN }}
+          surge dist fzrsviteapp.surge.sh --token ${{ secrets.SURGE_TOKEN }}
           
