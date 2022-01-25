@@ -34,7 +34,7 @@ jobs:
           npm install
       
       - name: Install Surge
-        run: npm install --globally surge
+        run: npm install --global surge
         
       - name: Build Vite
         run: |
