@@ -1,0 +1,14 @@
+.room{
+    height: 100vh;
+}
+
+.dark{
+    background-color: #232323;
+    color: #cdcdcd;
+}
+
+
+.lit{
+    background-color: #cdcdcd;
+    color: #232323;
+}
