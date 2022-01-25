@@ -27,6 +27,8 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2-beta
 
+      - name: Go to project
+        uses: cd First-React-App
       # Runs a set of commands using the runners shell
       - name: Install Dependencies
         run: npm install
