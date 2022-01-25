@@ -28,6 +28,9 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Go to project
+        run: ls
+
+      - name: Go to project
         run: cd First-React-App/
       
       - name: Get current working directory
