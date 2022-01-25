@@ -28,14 +28,16 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Install Dependencies
-        working-directory: ./First-React-app
+        working-directory: First-React-app
         run: npm install
       
       - name: Install Surge
         run: npm install --globally surge
         
       - name: Build Vite
+        working-directory: First-React-app
         run: npm run build
         
       - name: Run Surge
+        working-directory: First-React-app
         run: surge dist ${{ secrets.SURGE_TOKEN }}
