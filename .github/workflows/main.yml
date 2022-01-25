@@ -26,20 +26,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install Node
         uses: actions/setup-node@v2-beta
-      
-      - name: Get current working directory
-        run: pwd
-
-      - name: List
-        run: ls
-
-      - name: Go to project
-        run: cd "First-React-App"
-      
-      - name: Get current working directory
-        run: pwd
 
       - name: Install Dependencies
+        working-directory: ./First-React-app
         run: npm install
       
       - name: Install Surge
