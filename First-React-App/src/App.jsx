@@ -10,15 +10,14 @@ import { GlobalContext, GlobalProvider } from './contexts/GlobalContext'
 
 function App() {
   const [balance, setBalance] = useState(0.00)
-  const { transactions } = useContext(GlobalContext)
-
+  
   return (
     <GlobalProvider>
       <Header />
       <div className='container'>
         <Balance />
         <AccountSummary />
-        <TransactionHistory transaction={transactions}/>
+        <TransactionHistory />
         <AddTransaction />
       </div>
 
