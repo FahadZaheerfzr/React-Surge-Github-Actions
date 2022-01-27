@@ -1,45 +1,29 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import { useContext, useState } from 'react'
 import './App.css'
 
+import Header from './components/Header/Header'
+import Balance from './components/Balance/Balance'
+import AccountSummary from './components/AccountSummary/AccountSummary'
+import TransactionHistory from './components/TransactionHistory/TransactionHistory'
+import AddTransaction from './components/AddTransaction/AddTransaction'
+import { GlobalContext, GlobalProvider } from './contexts/GlobalContext'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [balance, setBalance] = useState(0.00)
+  const { transactions } = useContext(GlobalContext)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <GlobalProvider>
+      <Header />
+      <div className='container'>
+        <Balance />
+        <AccountSummary />
+        <TransactionHistory transaction={transactions}/>
+        <AddTransaction />
+      </div>
+
+    </GlobalProvider>
+  );
 }
 
 export default App
