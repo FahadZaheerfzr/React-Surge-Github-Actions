@@ -1,4 +1,11 @@
+import { useContext, useState } from "react";
+import { GlobalContext } from '../../contexts/GlobalContext';
+
 const AccountSummary = () => {
+    const {transaction, dispatch} = useContext(GlobalContext);
+    const [income, setIncome] = useState(0.00);
+    const [expense, setExpense] = useState(0.00);
+    
     return (
         <div className="inc-exp-container">
             <div>

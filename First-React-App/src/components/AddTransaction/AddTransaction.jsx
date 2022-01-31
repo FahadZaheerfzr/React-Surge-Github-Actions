@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const AddTransaction = () => {
     const [description, setDescription] = useState();
     const [transactionAmount, setTransactionAmount] = useState();
+    const {transaction, dispatch} = useContext(GlobalContext);
+    const [id, setID] = useState(transaction.length+1);
 
     return (
         <div>
@@ -24,7 +27,11 @@ const AddTransaction = () => {
                         placeholder="Enter Transaction Amount" value={transactionAmount}
                         onChange={(e) => setTransactionAmount(e.target.value)} />
                 </div>
-                <button className="btn">
+                <button type="button" className="btn" onClick={
+                    ()=>{
+                        dispatch({type:'ADD_TRANSACTION',transaction:{id:id, description:description, transactionAmount:transactionAmount}});
+                        setID(id+1);
+                        }}>
                     Add Transaction
                 </button>
             </form>

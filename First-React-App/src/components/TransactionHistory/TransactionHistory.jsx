@@ -4,12 +4,11 @@ import Transcation from './Transaction';
 
 const TransactionHistory = () => {
     const { transaction } = useContext(GlobalContext);
-    console.log(transaction)
     return (
         <div>
             <h3>Transaction History</h3>
             <ul className="list">
-                {transaction.map(trans => (<Transcation key={trans.id} transaction={trans}/>))}
+                {transaction.map(trans => (<Transcation key={trans.id} transactions={trans}/>))}
             </ul>
         </div>
     );
