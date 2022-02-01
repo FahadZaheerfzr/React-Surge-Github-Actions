@@ -8,7 +8,9 @@ const initialState = {
         {id:3, description:"Expense 2", transactionAmount: -500},
         {id:4, description:"Income 2", transactionAmount: 3000},
         {id:5, description:"Income 3", transactionAmount: 6000},
-    ]
+    ],
+    expense:600,
+    income:10000,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -17,7 +19,7 @@ export const GlobalProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState);
     return (
-        <GlobalContext.Provider value={{transaction: state.transactions, dispatch}}>
+        <GlobalContext.Provider value={{transaction: state.transactions, dispatch, expense: state.expense, income:state.income }}>
             {children}
         </GlobalContext.Provider>
     )

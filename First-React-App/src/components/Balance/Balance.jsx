@@ -1,8 +1,12 @@
+import { useContext, useState } from "react";
+import { GlobalContext } from '../../contexts/GlobalContext';
+
 const Balance = () => {
+    const {transaction, dispatch, expense,income} = useContext(GlobalContext);
     return(
         <div>
             <h4>Current Balance</h4>
-            <h1>$0.00</h1>
+            <h1>${income-expense}</h1>
         </div>
     )
 }
