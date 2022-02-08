@@ -2,8 +2,8 @@ import { useContext, useState } from "react"
 import { GlobalContext } from "../../contexts/GlobalContext";
 
 const AddTransaction = () => {
-    const [description, setDescription] = useState();
-    const [transactionAmount, setTransactionAmount] = useState();
+    const [description, setDescription] = useState("");
+    const [transactionAmount, setTransactionAmount] = useState("");
     const {transaction, dispatch} = useContext(GlobalContext);
     const [id, setID] = useState(transaction.length+1);
 
